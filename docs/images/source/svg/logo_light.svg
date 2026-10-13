@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024"><g transform="translate(96 370) scale(0.27929688)">
+  <path fill="#0D9488" d="M270 192 L272 32 Q277 5 302 22 L423 100 Z"/>
+  <path fill="#0D9488" d="M608 102 L724 20 Q752 2 757 36 L756 191 Z"/>
+  <circle cx="512" cy="454" r="405" fill="#0D9488"/>
+  <rect x="188" y="880" width="648" height="112" rx="55" fill="#0D9488"/>
+  <circle cx="379" cy="543" r="214" fill="#5EEAD4"/>
+  <circle cx="379" cy="543" r="169" fill="#FFFFFF"/>
+  <path d="M273 552 H317 L345 580 L390 471 L429 552 H485" fill="none" stroke="#0D9488" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+    <text x="485" y="574" font-family="Inter, sans-serif" font-size="112" font-weight="600" fill="#111827">Litter Box<tspan fill="#0D9488"> Monitor</tspan></text></svg>

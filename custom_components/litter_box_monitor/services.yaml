@@ -1,0 +1,12 @@
+set_bag_door_opened:
+  fields:
+    config_entry_id:
+      required: true
+      selector:
+        config_entry:
+          integration: litter_box_monitor
+    timestamp:
+      required: false
+      example: "2026-10-01T08:30:00-05:00"
+      selector:
+        text:

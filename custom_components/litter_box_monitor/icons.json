@@ -1,0 +1,44 @@
+{
+  "entity": {
+    "sensor": {
+      "status": {
+        "default": "mdi:cat",
+        "state": {
+          "cleaning": "mdi:rotate-3d-variant",
+          "error": "mdi:alert",
+          "sensor_unavailable": "mdi:lan-disconnect"
+        }
+      },
+      "error_reason": {
+        "default": "mdi:alert-box",
+        "state": { "none": "mdi:check-circle-outline" }
+      },
+      "last_cleaning": { "default": "mdi:broom" },
+      "last_cleaning_duration": { "default": "mdi:timer-outline" },
+      "cleans_today": { "default": "mdi:counter" },
+      "cleans_yesterday": { "default": "mdi:counter" },
+      "cleans_last_7_days": { "default": "mdi:calendar-week" },
+      "total_cleans": { "default": "mdi:sigma" },
+      "average_cleaning_duration": { "default": "mdi:timer-sand" },
+      "current_cleaning_duration": { "default": "mdi:timer-play-outline" },
+      "last_bag_door_opened": { "default": "mdi:delete-outline" },
+      "days_since_bag_door_opened": { "default": "mdi:calendar-clock" }
+    },
+    "binary_sensor": {
+      "problem": { "default": "mdi:alert-circle" },
+      "cleaning_active": { "default": "mdi:broom" },
+      "maintenance_due": {
+        "default": "mdi:delete-empty-outline",
+        "state": { "on": "mdi:delete-alert-outline" }
+      }
+    },
+    "event": {
+      "cleaning": { "default": "mdi:broom" },
+      "fault": { "default": "mdi:alert-octagon-outline" },
+      "bag_door": { "default": "mdi:delete-outline" }
+    }
+  },
+  "services": {
+    "set_bag_door_opened": { "service": "mdi:calendar-edit" }
+  }
+}

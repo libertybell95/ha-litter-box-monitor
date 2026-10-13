@@ -1,0 +1,206 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a litter box",
+        "description": "Select the contact sensors fitted to the litter box. The main door sensor must report on (open) while idle and off (closed) while the box is cleaning.",
+        "data": {
+          "name": "Device name",
+          "main_door_entity": "Main door sensor",
+          "bag_door_entity": "Rear / bag door sensor",
+          "cleaning_timeout": "Cleaning timeout",
+          "fault_monitoring": "Fault monitoring",
+          "maintenance_tracking": "Maintenance tracking",
+          "statistics": "Cleaning cycle statistics",
+          "fault_events": "Fault events"
+        },
+        "data_description": {
+          "main_door_entity": "Binary sensor that is on while the main door is open (idle) and off while it is closed (cleaning).",
+          "bag_door_entity": "Binary sensor that is on while the rear/bag door is open. Required for maintenance tracking.",
+          "cleaning_timeout": "Report the main door as stuck if it stays closed longer than this.",
+          "fault_monitoring": "Raise a fault when the main door stays closed past the cleaning timeout.",
+          "maintenance_tracking": "Track when the rear/bag door was last opened.",
+          "statistics": "Keep cleaning counts, durations and a bounded cycle history.",
+          "fault_events": "Fire fault detected/cleared events for automations and notifications."
+        }
+      },
+      "maintenance": {
+        "title": "Maintenance tracking",
+        "description": "Optionally carry over an existing bag door timestamp, for example from a Node-RED flow. By default the timestamp stays unknown until the bag door is actually opened.",
+        "data": {
+          "maintenance_threshold_days": "Maintenance reminder after",
+          "initial_bag_door_opened": "Initial Last Bag Door Opened",
+          "initialize_bag_door_now": "Initialize to now (legacy Node-RED behaviour)"
+        },
+        "data_description": {
+          "maintenance_threshold_days": "Turn on the Maintenance Due sensor after this many calendar days. 0 disables the reminder.",
+          "initial_bag_door_opened": "ISO 8601 date/time (e.g. 2026-10-01T08:30:00-05:00) or Unix timestamp in seconds or milliseconds.",
+          "initialize_bag_door_now": "Record the current time as an initialized (not observed) bag door opening."
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure litter box",
+        "description": "Change the input sensors. Stored statistics and maintenance history are kept.",
+        "data": {
+          "name": "Device name",
+          "main_door_entity": "Main door sensor",
+          "bag_door_entity": "Rear / bag door sensor"
+        }
+      }
+    },
+    "error": {
+      "entity_not_found": "The selected entity does not exist.",
+      "not_binary_sensor": "The selected entity is not a binary sensor.",
+      "same_entity": "The main door and the bag door must be different sensors.",
+      "bag_door_required": "A rear/bag door sensor is required when maintenance tracking is enabled.",
+      "invalid_timestamp": "Enter an ISO 8601 date/time or a Unix timestamp between 2000 and now.",
+      "conflicting_initialization": "Either enter a timestamp or choose to initialize to now, not both."
+    },
+    "abort": {
+      "already_configured": "A litter box using this main door sensor is already configured.",
+      "reconfigure_successful": "The litter box was reconfigured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Litter box options",
+        "description": "Changing options keeps all stored statistics and maintenance history. To change the input sensors use Reconfigure.",
+        "data": {
+          "cleaning_timeout": "Cleaning timeout",
+          "fault_monitoring": "Fault monitoring",
+          "maintenance_tracking": "Maintenance tracking",
+          "statistics": "Cleaning cycle statistics",
+          "fault_events": "Fault events",
+          "maintenance_threshold_days": "Maintenance reminder after",
+          "history_retention_days": "History retention"
+        },
+        "data_description": {
+          "cleaning_timeout": "Report the main door as stuck if it stays closed longer than this.",
+          "maintenance_threshold_days": "0 disables the Maintenance Due sensor.",
+          "history_retention_days": "How long daily counts and cycle history are kept."
+        }
+      }
+    },
+    "error": {
+      "bag_door_required": "Configure a rear/bag door sensor with Reconfigure before enabling maintenance tracking."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "ready": "Ready",
+          "cleaning": "Cleaning",
+          "error": "Error",
+          "sensor_unavailable": "Unavailable"
+        },
+        "state_attributes": {
+          "cleaning_started_at": { "name": "Cleaning started at" },
+          "cycle_start_source": {
+            "name": "Cycle start source",
+            "state": { "observed": "Observed", "estimated": "Estimated" }
+          },
+          "cycle_verified": { "name": "Cycle verified" }
+        }
+      },
+      "error_reason": {
+        "name": "Error reason",
+        "state": {
+          "none": "None",
+          "main_door_stuck_closed": "Main door stuck closed"
+        }
+      },
+      "last_cleaning": { "name": "Last cleaning" },
+      "last_cleaning_duration": { "name": "Last cleaning duration" },
+      "cleans_today": { "name": "Cleans today" },
+      "cleans_yesterday": { "name": "Cleans yesterday" },
+      "cleans_last_7_days": { "name": "Cleans last 7 days" },
+      "total_cleans": { "name": "Total cleans" },
+      "average_cleaning_duration": { "name": "Average cleaning duration" },
+      "current_cleaning_duration": { "name": "Current cleaning duration" },
+      "last_bag_door_opened": {
+        "name": "Last bag door opened",
+        "state_attributes": {
+          "source": {
+            "name": "Source",
+            "state": {
+              "observed": "Observed",
+              "manual": "Set manually",
+              "initialized": "Initialized"
+            }
+          }
+        }
+      },
+      "days_since_bag_door_opened": { "name": "Days since bag door opened" }
+    },
+    "binary_sensor": {
+      "problem": { "name": "Problem" },
+      "cleaning_active": { "name": "Cleaning active" },
+      "maintenance_due": { "name": "Maintenance due" },
+      "input_sensors": { "name": "Input sensors" }
+    },
+    "event": {
+      "cleaning": {
+        "name": "Cleaning",
+        "state_attributes": {
+          "event_type": {
+            "state": { "cleaning_completed": "Cleaning completed" }
+          }
+        }
+      },
+      "fault": {
+        "name": "Fault",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "fault_detected": "Fault detected",
+              "fault_cleared": "Fault cleared"
+            }
+          }
+        }
+      },
+      "bag_door": {
+        "name": "Bag door",
+        "state_attributes": {
+          "event_type": {
+            "state": { "bag_door_opened": "Bag door opened" }
+          }
+        }
+      }
+    }
+  },
+  "issues": {
+    "entity_missing": {
+      "title": "{name}: {role} sensor is missing",
+      "description": "The {role} sensor `{entity_id}` used by {name} no longer exists. Open Settings → Devices & services → Litter Box Monitor, choose Reconfigure on {name} and select the replacement sensor. Stored statistics are kept."
+    },
+    "entity_unavailable": {
+      "title": "{name}: {role} sensor is unavailable",
+      "description": "The {role} sensor `{entity_id}` used by {name} has been unavailable for more than 30 minutes. Cleaning cycles cannot be observed while it is offline, and any active fault is kept until the door is seen open again. Check the sensor's battery and connection, or use Reconfigure to select a different sensor. This issue clears itself when the sensor reports again."
+    }
+  },
+  "exceptions": {
+    "entry_not_found": { "message": "No Litter Box Monitor entry with id {entry_id}." },
+    "entry_not_loaded": { "message": "{name} is not loaded." },
+    "maintenance_disabled": { "message": "Maintenance tracking is disabled for {name}." },
+    "invalid_timestamp": { "message": "Invalid timestamp {value}: use ISO 8601 or a Unix timestamp between 2000 and now." }
+  },
+  "services": {
+    "set_bag_door_opened": {
+      "name": "Set bag door opened",
+      "description": "Manually set Last Bag Door Opened, for example to migrate the value from Node-RED.",
+      "fields": {
+        "config_entry_id": {
+          "name": "Litter box",
+          "description": "The litter box to update."
+        },
+        "timestamp": {
+          "name": "Timestamp",
+          "description": "ISO 8601 date/time, or Unix timestamp in seconds or milliseconds. Defaults to now."
+        }
+      }
+    }
+  }
+}

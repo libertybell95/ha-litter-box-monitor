@@ -1,0 +1,13 @@
+{
+  "domain": "litter_box_monitor",
+  "name": "Litter Box Monitor",
+  "codeowners": ["@libertybell95"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/libertybell95/ha-litter-box-monitor",
+  "integration_type": "device",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/libertybell95/ha-litter-box-monitor/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

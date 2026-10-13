@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024"><rect width="1536" height="1024" fill="#F8FAFC"/>
+<!-- floor ellipses -->
+<ellipse cx="385" cy="859" rx="268" ry="34" fill="#E2E8F0"/>
+<ellipse cx="1152" cy="859" rx="268" ry="34" fill="#E2E8F0"/>
+
+<!-- FRONT: globe drawn as a three-quarter form -->
+<path d="M139 516 C139 344 245 212 399 212 C551 212 657 350 657 515 C657 663 575 754 522 789 L265 789 C196 748 139 649 139 516 Z" fill="#94A3B8"/>
+<!-- upper side turning surface: use paper highlight, not gradients -->
+<path d="M531 267 C604 314 648 405 648 521 C648 625 615 704 551 752 C592 645 596 518 582 406 C573 347 552 297 531 267 Z" fill="#E2E8F0"/>
+<!-- entrance shadow/outer ink boundary and light ring -->
+<ellipse cx="354" cy="545" rx="180" ry="185" fill="#111827"/>
+<ellipse cx="354" cy="545" rx="160" ry="166" fill="#5EEAD4"/>
+<ellipse cx="354" cy="545" rx="133" ry="140" fill="#111827"/>
+<!-- doorway open; no door panel obstructing entrance -->
+<!-- front base: visible platform -->
+<path d="M194 764 Q198 744 225 744 H542 Q574 744 578 764 L600 822 Q600 842 563 842 H213 Q180 842 177 824 Z" fill="#111827"/>
+<path d="M248 778 H529" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+<!-- front contact at 12 o'clock; solid white with ink edging -->
+<rect x="330" y="338" width="48" height="72" rx="11" fill="white" stroke="#111827" stroke-width="6"/>
+<rect x="348" y="349" width="12" height="33" rx="6" fill="#E2E8F0"/>
+<!-- front marker 1 and thin leader -->
+<path d="M166 288 L283 288 L335 344" stroke="#0D9488" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<circle cx="135" cy="288" r="46" fill="#0D9488"/>
+<text x="135" y="307" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="51" fill="white">1</text>
+
+<!-- REAR: three-quarter rear globe, gentle side curvature -->
+<path d="M900 516 C900 343 1006 211 1162 211 C1318 211 1424 346 1424 516 C1424 667 1357 749 1310 789 H1013 C942 743 900 645 900 516 Z" fill="#94A3B8"/>
+<path d="M1321 257 C1372 316 1414 417 1414 513 C1414 615 1381 714 1330 760 C1360 627 1373 489 1354 391 Z" fill="#E2E8F0"/>
+<!-- bag door seam: curved rectangular perimeter -->
+<path d="M1048 327 Q1169 295 1282 332 C1325 347 1346 385 1349 432 L1342 689 Q1333 733 1284 746 Q1170 772 1044 741 Q999 727 999 686 L997 424 Q1004 362 1048 327 Z" fill="none" stroke="#111827" stroke-width="10" stroke-linejoin="round"/>
+<!-- recessed top grip -->
+<rect x="1113" y="335" width="109" height="27" rx="13" fill="#111827"/>
+<rect x="1131" y="342" width="73" height="7" rx="3" fill="#94A3B8"/>
+<!-- bottom slot handle -->
+<rect x="1105" y="681" width="125" height="22" rx="10" fill="#111827"/>
+<!-- rear plinth -->
+<path d="M964 764 Q968 744 995 744 H1323 Q1358 744 1362 767 L1376 824 Q1374 842 1336 842 H985 Q952 842 951 825 Z" fill="#111827"/>
+<path d="M1018 779 H1310" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+<!-- rear door sensor in lower-left seam: small magnet directly above larger body -->
+<rect x="971" y="615" width="39" height="29" rx="6" stroke="#111827" stroke-width="5" fill="white"/>
+<rect x="967" y="648" width="47" height="73" rx="10" stroke="#111827" stroke-width="5" fill="white"/>
+<rect x="981" y="666" width="8" height="33" rx="4" fill="#E2E8F0"/>
+<!-- rear marker 2 and leader -->
+<path d="M897 767 L945 767 L981 704" stroke="#F59E0B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<circle cx="867" cy="767" r="45" fill="#F59E0B"/>
+<text x="867" y="785" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="51" fill="#111827">2</text>
+</svg>
