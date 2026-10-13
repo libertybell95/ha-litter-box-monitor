@@ -59,8 +59,9 @@ Requires Home Assistant **2026.10** or newer.
 
 ## 4. Manual installation
 
-1. Download the latest release, either `litter_box_monitor.zip` or the source archive.
-2. Copy `custom_components/litter_box_monitor/` into your Home Assistant config directory so that you have `/config/custom_components/litter_box_monitor/manifest.json`.
+1. Download `litter_box_monitor.zip` from the [latest release](https://github.com/libertybell95/ha-litter-box-monitor/releases/latest).
+2. Create `/config/custom_components/litter_box_monitor/` and extract the zip into it. The zip contains the integration's files directly, with no enclosing folder, so you end up with `/config/custom_components/litter_box_monitor/manifest.json`.
+   - Alternatively, download the source archive and copy its `custom_components/litter_box_monitor/` folder into `/config/custom_components/`.
 3. Restart Home Assistant.
 
 ## 5. Configuration
